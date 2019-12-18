@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6404718F23AABD89000ED7C7 /* Legislators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83B023AAB4C40038E35C /* Legislators.swift */; };
 		A59B837323AAA9AC0038E35C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B837223AAA9AC0038E35C /* AppDelegate.swift */; };
 		A59B837523AAA9AC0038E35C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B837423AAA9AC0038E35C /* SceneDelegate.swift */; };
 		A59B837A23AAA9AC0038E35C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59B837823AAA9AC0038E35C /* Main.storyboard */; };
@@ -327,6 +328,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A59B838D23AAA9B10038E35C /* ARK_ProjectTests.swift in Sources */,
+				6404718F23AABD89000ED7C7 /* Legislators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +481,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3PQWZJD8Z5;
 				INFOPLIST_FILE = "ARK-Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -496,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3PQWZJD8Z5;
 				INFOPLIST_FILE = "ARK-Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
