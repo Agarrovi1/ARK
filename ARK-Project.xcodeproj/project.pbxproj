@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		A59B837323AAA9AC0038E35C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B837223AAA9AC0038E35C /* AppDelegate.swift */; };
 		A59B837523AAA9AC0038E35C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B837423AAA9AC0038E35C /* SceneDelegate.swift */; };
-		A59B837723AAA9AC0038E35C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B837623AAA9AC0038E35C /* ViewController.swift */; };
 		A59B837A23AAA9AC0038E35C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59B837823AAA9AC0038E35C /* Main.storyboard */; };
 		A59B837D23AAA9AC0038E35C /* ARK_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A59B837B23AAA9AC0038E35C /* ARK_Project.xcdatamodeld */; };
 		A59B837F23AAA9B10038E35C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59B837E23AAA9B10038E35C /* Assets.xcassets */; };
 		A59B838223AAA9B10038E35C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A59B838023AAA9B10038E35C /* LaunchScreen.storyboard */; };
 		A59B838D23AAA9B10038E35C /* ARK_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B838C23AAA9B10038E35C /* ARK_ProjectTests.swift */; };
+		A59B83A023AAADD50038E35C /* InitialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B839F23AAADD50038E35C /* InitialVC.swift */; };
+		A59B83A223AAADEC0038E35C /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83A123AAADEC0038E35C /* MapVC.swift */; };
+		A59B83A423AAAE060038E35C /* FactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83A323AAAE060038E35C /* FactsVC.swift */; };
+		A59B83A623AAAE230038E35C /* ResourcesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83A523AAAE230038E35C /* ResourcesVC.swift */; };
+		A59B83A823AAAE390038E35C /* TakeActionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83A723AAAE390038E35C /* TakeActionVC.swift */; };
+		A59B83AA23AAAE730038E35C /* FactsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83A923AAAE730038E35C /* FactsTVCell.swift */; };
+		A59B83AC23AAAE9B0038E35C /* ResourcesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83AB23AAAE9B0038E35C /* ResourcesCVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +37,6 @@
 		A59B836F23AAA9AC0038E35C /* ARK-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARK-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59B837223AAA9AC0038E35C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A59B837423AAA9AC0038E35C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A59B837623AAA9AC0038E35C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A59B837923AAA9AC0038E35C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A59B837C23AAA9AC0038E35C /* ARK_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ARK_Project.xcdatamodel; sourceTree = "<group>"; };
 		A59B837E23AAA9B10038E35C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +45,13 @@
 		A59B838823AAA9B10038E35C /* ARK-ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ARK-ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59B838C23AAA9B10038E35C /* ARK_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARK_ProjectTests.swift; sourceTree = "<group>"; };
 		A59B838E23AAA9B10038E35C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A59B839F23AAADD50038E35C /* InitialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialVC.swift; sourceTree = "<group>"; };
+		A59B83A123AAADEC0038E35C /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		A59B83A323AAAE060038E35C /* FactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsVC.swift; sourceTree = "<group>"; };
+		A59B83A523AAAE230038E35C /* ResourcesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVC.swift; sourceTree = "<group>"; };
+		A59B83A723AAAE390038E35C /* TakeActionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeActionVC.swift; sourceTree = "<group>"; };
+		A59B83A923AAAE730038E35C /* FactsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsTVCell.swift; sourceTree = "<group>"; };
+		A59B83AB23AAAE9B0038E35C /* ResourcesCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesCVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +93,13 @@
 		A59B837123AAA9AC0038E35C /* ARK-Project */ = {
 			isa = PBXGroup;
 			children = (
-				A59B837223AAA9AC0038E35C /* AppDelegate.swift */,
-				A59B837423AAA9AC0038E35C /* SceneDelegate.swift */,
-				A59B837623AAA9AC0038E35C /* ViewController.swift */,
+				A59B839C23AAAC2A0038E35C /* Controllers */,
+				A59B839B23AAABDD0038E35C /* Views */,
+				A59B839A23AAABD50038E35C /* Models */,
+				A59B839823AAABA00038E35C /* Networking */,
+				A59B839723AAAB890038E35C /* SupportingFiles */,
 				A59B837823AAA9AC0038E35C /* Main.storyboard */,
 				A59B837E23AAA9B10038E35C /* Assets.xcassets */,
-				A59B838023AAA9B10038E35C /* LaunchScreen.storyboard */,
 				A59B838323AAA9B10038E35C /* Info.plist */,
 				A59B837B23AAA9AC0038E35C /* ARK_Project.xcdatamodeld */,
 			);
@@ -100,6 +113,59 @@
 				A59B838E23AAA9B10038E35C /* Info.plist */,
 			);
 			path = "ARK-ProjectTests";
+			sourceTree = "<group>";
+		};
+		A59B839723AAAB890038E35C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A59B837223AAA9AC0038E35C /* AppDelegate.swift */,
+				A59B838023AAA9B10038E35C /* LaunchScreen.storyboard */,
+				A59B837423AAA9AC0038E35C /* SceneDelegate.swift */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		A59B839823AAABA00038E35C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A59B839923AAABBB0038E35C /* APIClients */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		A59B839923AAABBB0038E35C /* APIClients */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIClients;
+			sourceTree = "<group>";
+		};
+		A59B839A23AAABD50038E35C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A59B839B23AAABDD0038E35C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A59B83A923AAAE730038E35C /* FactsTVCell.swift */,
+				A59B83AB23AAAE9B0038E35C /* ResourcesCVCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A59B839C23AAAC2A0038E35C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A59B839F23AAADD50038E35C /* InitialVC.swift */,
+				A59B83A123AAADEC0038E35C /* MapVC.swift */,
+				A59B83A323AAAE060038E35C /* FactsVC.swift */,
+				A59B83A523AAAE230038E35C /* ResourcesVC.swift */,
+				A59B83A723AAAE390038E35C /* TakeActionVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,9 +269,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A59B83A423AAAE060038E35C /* FactsVC.swift in Sources */,
+				A59B83AA23AAAE730038E35C /* FactsTVCell.swift in Sources */,
+				A59B83A823AAAE390038E35C /* TakeActionVC.swift in Sources */,
+				A59B83A223AAADEC0038E35C /* MapVC.swift in Sources */,
 				A59B837D23AAA9AC0038E35C /* ARK_Project.xcdatamodeld in Sources */,
-				A59B837723AAA9AC0038E35C /* ViewController.swift in Sources */,
+				A59B83A023AAADD50038E35C /* InitialVC.swift in Sources */,
 				A59B837323AAA9AC0038E35C /* AppDelegate.swift in Sources */,
+				A59B83A623AAAE230038E35C /* ResourcesVC.swift in Sources */,
+				A59B83AC23AAAE9B0038E35C /* ResourcesCVCell.swift in Sources */,
 				A59B837523AAA9AC0038E35C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
