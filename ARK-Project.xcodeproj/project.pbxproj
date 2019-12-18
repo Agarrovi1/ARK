@@ -21,6 +21,11 @@
 		A59B83A823AAAE390038E35C /* TakeActionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83A723AAAE390038E35C /* TakeActionVC.swift */; };
 		A59B83AA23AAAE730038E35C /* FactsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83A923AAAE730038E35C /* FactsTVCell.swift */; };
 		A59B83AC23AAAE9B0038E35C /* ResourcesCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83AB23AAAE9B0038E35C /* ResourcesCVCell.swift */; };
+		A59B83AF23AAB4A30038E35C /* FloodInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83AE23AAB4A30038E35C /* FloodInfo.swift */; };
+		A59B83B123AAB4C40038E35C /* Legislators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83B023AAB4C40038E35C /* Legislators.swift */; };
+		A59B83B323AAB4E20038E35C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83B223AAB4E20038E35C /* NetworkManager.swift */; };
+		A59B83B523AAB5230038E35C /* LeigislationAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83B423AAB5230038E35C /* LeigislationAPIClient.swift */; };
+		A59B83B823AAB5450038E35C /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83B723AAB5450038E35C /* AppError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,11 @@
 		A59B83A723AAAE390038E35C /* TakeActionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeActionVC.swift; sourceTree = "<group>"; };
 		A59B83A923AAAE730038E35C /* FactsTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsTVCell.swift; sourceTree = "<group>"; };
 		A59B83AB23AAAE9B0038E35C /* ResourcesCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesCVCell.swift; sourceTree = "<group>"; };
+		A59B83AE23AAB4A30038E35C /* FloodInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloodInfo.swift; sourceTree = "<group>"; };
+		A59B83B023AAB4C40038E35C /* Legislators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Legislators.swift; sourceTree = "<group>"; };
+		A59B83B223AAB4E20038E35C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		A59B83B423AAB5230038E35C /* LeigislationAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeigislationAPIClient.swift; sourceTree = "<group>"; };
+		A59B83B723AAB5450038E35C /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +139,8 @@
 		A59B839823AAABA00038E35C /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A59B83B223AAB4E20038E35C /* NetworkManager.swift */,
+				A59B83B723AAB5450038E35C /* AppError.swift */,
 				A59B839923AAABBB0038E35C /* APIClients */,
 			);
 			path = Networking;
@@ -137,6 +149,7 @@
 		A59B839923AAABBB0038E35C /* APIClients */ = {
 			isa = PBXGroup;
 			children = (
+				A59B83B423AAB5230038E35C /* LeigislationAPIClient.swift */,
 			);
 			path = APIClients;
 			sourceTree = "<group>";
@@ -144,6 +157,8 @@
 		A59B839A23AAABD50038E35C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A59B83AE23AAB4A30038E35C /* FloodInfo.swift */,
+				A59B83B023AAB4C40038E35C /* Legislators.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -277,14 +292,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A59B83AF23AAB4A30038E35C /* FloodInfo.swift in Sources */,
 				A59B83A423AAAE060038E35C /* FactsVC.swift in Sources */,
+				A59B83B823AAB5450038E35C /* AppError.swift in Sources */,
 				A59B83AA23AAAE730038E35C /* FactsTVCell.swift in Sources */,
+				A59B83B323AAB4E20038E35C /* NetworkManager.swift in Sources */,
 				A59B83A823AAAE390038E35C /* TakeActionVC.swift in Sources */,
 				A59B83A223AAADEC0038E35C /* MapVC.swift in Sources */,
+				A59B83B123AAB4C40038E35C /* Legislators.swift in Sources */,
 				A59B837D23AAA9AC0038E35C /* ARK_Project.xcdatamodeld in Sources */,
 				A59B83A023AAADD50038E35C /* InitialVC.swift in Sources */,
 				A59B837323AAA9AC0038E35C /* AppDelegate.swift in Sources */,
 				A59B83A623AAAE230038E35C /* ResourcesVC.swift in Sources */,
+				A59B83B523AAB5230038E35C /* LeigislationAPIClient.swift in Sources */,
 				A59B83AC23AAAE9B0038E35C /* ResourcesCVCell.swift in Sources */,
 				A59B837523AAA9AC0038E35C /* SceneDelegate.swift in Sources */,
 			);
