@@ -25,12 +25,30 @@ class MapVC: UIViewController {
     }()
     var mapView = MKMapView()
     lazy var dangerGauge = DangerGaugeView(frame: CGRect(x: 0, y: 0, width: 50, height: 180))
+    var resourceButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "icons8-safety_float_1"), for: .normal)
+        return button
+    }()
+    var infoButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "info-squared"), for: .normal)
+        return button
+    }()
+    var actionButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "icons8-phone_message"), for: .normal)
+        return button
+    }()
     
     //MARK: - Constraints
     private func setConstraints() {
         setSearchBarConstraints()
         setMapConstraints()
         setGaugeConstraints()
+        setResourceButtonConstraints()
+        setInfoButtonConstraints()
+        setActionButtonConstraints()
     }
     private func setSearchBarConstraints() {
         view.addSubview(placeSearchBar)
@@ -57,6 +75,29 @@ class MapVC: UIViewController {
             dangerGauge.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
             dangerGauge.widthAnchor.constraint(equalToConstant: dangerGauge.frame.width),
             dangerGauge.heightAnchor.constraint(equalToConstant: dangerGauge.frame.height)])
+    }
+    private func setResourceButtonConstraints() {
+        mapView.addSubview(resourceButton)
+        resourceButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            resourceButton.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: 100),
+            resourceButton.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -20)])
+    }
+    private func setInfoButtonConstraints() {
+        mapView.addSubview(infoButton)
+        infoButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            infoButton.topAnchor.constraint(equalTo: resourceButton.topAnchor,constant: -10),
+            infoButton.leadingAnchor.constraint(equalTo: resourceButton.trailingAnchor, constant: 20),
+            infoButton.widthAnchor.constraint(equalToConstant: 70),
+            infoButton.heightAnchor.constraint(equalToConstant: 70)])
+    }
+    private func setActionButtonConstraints() {
+        mapView.addSubview(actionButton)
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            actionButton.leadingAnchor.constraint(equalTo: infoButton.trailingAnchor, constant: 20),
+            actionButton.topAnchor.constraint(equalTo: resourceButton.topAnchor)])
     }
     //MARK: - Setup
     private func setDelegates() {
