@@ -24,11 +24,13 @@ class MapVC: UIViewController {
         return bar
     }()
     var mapView = MKMapView()
+    lazy var dangerGauge = DangerGaugeView(frame: CGRect(x: 0, y: 0, width: 50, height: 180))
     
     //MARK: - Constraints
     private func setConstraints() {
         setSearchBarConstraints()
         setMapConstraints()
+        setGaugeConstraints()
     }
     private func setSearchBarConstraints() {
         view.addSubview(placeSearchBar)
@@ -46,6 +48,15 @@ class MapVC: UIViewController {
             mapView.leadingAnchor.constraint(equalTo: placeSearchBar.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: placeSearchBar.trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)])
+    }
+    private func setGaugeConstraints() {
+        mapView.addSubview(dangerGauge)
+        dangerGauge.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dangerGauge.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -50),
+            dangerGauge.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
+            dangerGauge.widthAnchor.constraint(equalToConstant: dangerGauge.frame.width),
+            dangerGauge.heightAnchor.constraint(equalToConstant: dangerGauge.frame.height)])
     }
     //MARK: - Setup
     private func setDelegates() {
