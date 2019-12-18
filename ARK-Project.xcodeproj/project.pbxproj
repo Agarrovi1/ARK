@@ -28,6 +28,7 @@
 		A59B83B823AAB5450038E35C /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83B723AAB5450038E35C /* AppError.swift */; };
 		A59B83BA23AABBB80038E35C /* Legislators.json in Resources */ = {isa = PBXBuildFile; fileRef = A59B83B923AABBB80038E35C /* Legislators.json */; };
 		A59B83BC23AABC070038E35C /* DangerGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83BB23AABC070038E35C /* DangerGaugeView.swift */; };
+		A59B83BE23AAE6D60038E35C /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83BD23AAE6D60038E35C /* IntroView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		A59B83B723AAB5450038E35C /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		A59B83B923AABBB80038E35C /* Legislators.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Legislators.json; sourceTree = "<group>"; };
 		A59B83BB23AABC070038E35C /* DangerGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerGaugeView.swift; sourceTree = "<group>"; };
+		A59B83BD23AAE6D60038E35C /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				A59B83A923AAAE730038E35C /* FactsTVCell.swift */,
 				A59B83AB23AAAE9B0038E35C /* ResourcesCVCell.swift */,
 				A59B83BB23AABC070038E35C /* DangerGaugeView.swift */,
+				A59B83BD23AAE6D60038E35C /* IntroView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				A59B83A023AAADD50038E35C /* InitialVC.swift in Sources */,
 				A59B837323AAA9AC0038E35C /* AppDelegate.swift in Sources */,
 				A59B83A623AAAE230038E35C /* ResourcesVC.swift in Sources */,
+				A59B83BE23AAE6D60038E35C /* IntroView.swift in Sources */,
 				A59B83B523AAB5230038E35C /* LeigislationAPIClient.swift in Sources */,
 				A59B83AC23AAAE9B0038E35C /* ResourcesCVCell.swift in Sources */,
 				A59B837523AAA9AC0038E35C /* SceneDelegate.swift in Sources */,
