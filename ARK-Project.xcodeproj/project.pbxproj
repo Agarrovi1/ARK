@@ -26,6 +26,8 @@
 		A59B83B323AAB4E20038E35C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83B223AAB4E20038E35C /* NetworkManager.swift */; };
 		A59B83B523AAB5230038E35C /* LeigislationAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83B423AAB5230038E35C /* LeigislationAPIClient.swift */; };
 		A59B83B823AAB5450038E35C /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83B723AAB5450038E35C /* AppError.swift */; };
+		A59B83BA23AABBB80038E35C /* Legislators.json in Resources */ = {isa = PBXBuildFile; fileRef = A59B83B923AABBB80038E35C /* Legislators.json */; };
+		A59B83BC23AABC070038E35C /* DangerGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83BB23AABC070038E35C /* DangerGaugeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		A59B83B223AAB4E20038E35C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A59B83B423AAB5230038E35C /* LeigislationAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeigislationAPIClient.swift; sourceTree = "<group>"; };
 		A59B83B723AAB5450038E35C /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		A59B83B923AABBB80038E35C /* Legislators.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Legislators.json; sourceTree = "<group>"; };
+		A59B83BB23AABC070038E35C /* DangerGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerGaugeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,7 @@
 			children = (
 				A59B838C23AAA9B10038E35C /* ARK_ProjectTests.swift */,
 				A59B838E23AAA9B10038E35C /* Info.plist */,
+				A59B83B923AABBB80038E35C /* Legislators.json */,
 			);
 			path = "ARK-ProjectTests";
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 			children = (
 				A59B83A923AAAE730038E35C /* FactsTVCell.swift */,
 				A59B83AB23AAAE9B0038E35C /* ResourcesCVCell.swift */,
+				A59B83BB23AABC070038E35C /* DangerGaugeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -282,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A59B83BA23AABBB80038E35C /* Legislators.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +304,7 @@
 				A59B83B823AAB5450038E35C /* AppError.swift in Sources */,
 				A59B83AA23AAAE730038E35C /* FactsTVCell.swift in Sources */,
 				A59B83B323AAB4E20038E35C /* NetworkManager.swift in Sources */,
+				A59B83BC23AABC070038E35C /* DangerGaugeView.swift in Sources */,
 				A59B83A823AAAE390038E35C /* TakeActionVC.swift in Sources */,
 				A59B83A223AAADEC0038E35C /* MapVC.swift in Sources */,
 				A59B83B123AAB4C40038E35C /* Legislators.swift in Sources */,
