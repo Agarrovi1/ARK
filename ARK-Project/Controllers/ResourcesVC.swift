@@ -13,7 +13,7 @@ class ResourcesVC: UIViewController {
     // MARK: - UI Objects
     lazy var headerImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(named: "info-squared")
+        img.image = UIImage(systemName: "info.circle")
         return img
     }()
     
@@ -54,7 +54,7 @@ class ResourcesVC: UIViewController {
     private func constrainHeaderImage() {
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         
-        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
+        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
     }
     
     private func constrainResourceCV() {
