@@ -11,13 +11,10 @@ import UIKit
 class FactsVC: UIViewController {
     
     // MARK: - UI Objects
-    lazy var headerLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Facts"
-        label.font = UIFont(name: "Optima-ExtraBlack", size: 30)
-        label.textColor = #colorLiteral(red: 0.2936059237, green: 0.2941584289, blue: 0.9735861421, alpha: 1)
-        label.textAlignment = .center
-        return label
+    lazy var headerImage: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(systemName: "tornado")
+        return img
     }()
     
     lazy var factsTV: UITableView = {
@@ -37,12 +34,12 @@ class FactsVC: UIViewController {
     
     // MARK: - Private Methods
     private func addSubviews() {
-        view.addSubview(headerLabel)
+        view.addSubview(headerImage)
         view.addSubview(factsTV)
     }
     
     private func addConstraints() {
-        constrainHeaderLabel()
+        constrainHeaderImage()
         constrainTableView()
     }
     
@@ -52,16 +49,16 @@ class FactsVC: UIViewController {
     }
     
     // MARK: - Constraint Methods
-    private func constrainHeaderLabel() {
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func constrainHeaderImage() {
+        headerImage.translatesAutoresizingMaskIntoConstraints = false
         
-        [headerLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 45), headerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor), headerLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor), headerLabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2)].forEach({$0.isActive = true})
+        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
     }
     
     private func constrainTableView() {
         factsTV.translatesAutoresizingMaskIntoConstraints = false
         
-        [factsTV.topAnchor.constraint(equalTo: headerLabel.bottomAnchor), factsTV.leadingAnchor.constraint(equalTo: view.leadingAnchor), factsTV.trailingAnchor.constraint(equalTo: view.trailingAnchor), factsTV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)].forEach({$0.isActive = true})
+        [factsTV.topAnchor.constraint(equalTo: headerImage.bottomAnchor), factsTV.leadingAnchor.constraint(equalTo: view.leadingAnchor), factsTV.trailingAnchor.constraint(equalTo: view.trailingAnchor), factsTV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)].forEach({$0.isActive = true})
     }
 
     
