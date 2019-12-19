@@ -54,7 +54,7 @@ class FactsVC: UIViewController {
     private func constrainHeaderImage() {
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         
-        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
+        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
     }
     
     private func constrainTableView() {
