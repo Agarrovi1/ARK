@@ -13,9 +13,10 @@ class FactsTVCell: UITableViewCell {
     lazy var factLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "Optima-ExtraBlack", size: 18)
-        label.textColor = #colorLiteral(red: 0.2936059237, green: 0.2941584289, blue: 0.9735861421, alpha: 1)
-        label.backgroundColor = .yellow
+        label.font = UIFont(name: "Optima-Bold", size: 23)
+        label.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        label.backgroundColor = .black
+        label.numberOfLines = 0
         return label
     }()
     
