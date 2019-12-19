@@ -30,6 +30,7 @@
 		A59B83BA23AABBB80038E35C /* Legislators.json in Resources */ = {isa = PBXBuildFile; fileRef = A59B83B923AABBB80038E35C /* Legislators.json */; };
 		A59B83BC23AABC070038E35C /* DangerGaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83BB23AABC070038E35C /* DangerGaugeView.swift */; };
 		A59B83BE23AAE6D60038E35C /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83BD23AAE6D60038E35C /* IntroView.swift */; };
+		A59B83C323ABC8A10038E35C /* noahsVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = A59B83C223ABC2430038E35C /* noahsVideo.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		A59B83B923AABBB80038E35C /* Legislators.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Legislators.json; sourceTree = "<group>"; };
 		A59B83BB23AABC070038E35C /* DangerGaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DangerGaugeView.swift; sourceTree = "<group>"; };
 		A59B83BD23AAE6D60038E35C /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		A59B83C223ABC2430038E35C /* noahsVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = noahsVideo.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,8 @@
 		A59B837123AAA9AC0038E35C /* ARK-Project */ = {
 			isa = PBXGroup;
 			children = (
+				A59B83C223ABC2430038E35C /* noahsVideo.mp4 */,
+				A59B83BF23ABC1860038E35C /* Utilities */,
 				A59B83AD23AAB1290038E35C /* Confidential */,
 				A59B839C23AAAC2A0038E35C /* Controllers */,
 				A59B839B23AAABDD0038E35C /* Views */,
@@ -201,6 +205,13 @@
 			path = Confidential;
 			sourceTree = "<group>";
 		};
+		A59B83BF23ABC1860038E35C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -283,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A59B838223AAA9B10038E35C /* LaunchScreen.storyboard in Resources */,
+				A59B83C323ABC8A10038E35C /* noahsVideo.mp4 in Resources */,
 				A59B837F23AAA9B10038E35C /* Assets.xcassets in Resources */,
 				A59B837A23AAA9AC0038E35C /* Main.storyboard in Resources */,
 			);
