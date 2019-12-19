@@ -8,8 +8,22 @@
 
 import UIKit
 import AVKit
+import AVFoundation
 
 class InitialVC: UIViewController {
+    
+    var audioPlayer = AVAudioPlayer()
+    
+    func playSound(file:String, ext:String) -> Void {
+        do {
+            let url = URL.init(fileURLWithPath: Bundle.main.path(forResource: file, ofType: ext)!)
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        } catch let error {
+            NSLog(error.localizedDescription)
+        }
+    }
     
     // MARK: - UI Objects
     lazy var appNamelabel: UILabel = {
@@ -50,6 +64,7 @@ class InitialVC: UIViewController {
     //MARK: -- Lifecylce Methods
     override func viewDidLoad() {
       super.viewDidLoad()
+        playSound(file: "sound", ext: "wav")
         
     }
     

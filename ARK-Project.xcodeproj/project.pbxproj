@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5244D7DF23AC06EE001E338B /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5244D7DE23AC06EE001E338B /* sound.wav */; };
 		6404718F23AABD89000ED7C7 /* Legislators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B83B023AAB4C40038E35C /* Legislators.swift */; };
 		A59B837323AAA9AC0038E35C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B837223AAA9AC0038E35C /* AppDelegate.swift */; };
 		A59B837523AAA9AC0038E35C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B837423AAA9AC0038E35C /* SceneDelegate.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5244D7DE23AC06EE001E338B /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
 		A59B836F23AAA9AC0038E35C /* ARK-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARK-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59B837223AAA9AC0038E35C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A59B837423AAA9AC0038E35C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		A59B837123AAA9AC0038E35C /* ARK-Project */ = {
 			isa = PBXGroup;
 			children = (
+				5244D7DE23AC06EE001E338B /* sound.wav */,
 				A59B83C223ABC2430038E35C /* noahsVideo.mp4 */,
 				A59B83BF23ABC1860038E35C /* Utilities */,
 				A59B83AD23AAB1290038E35C /* Confidential */,
@@ -296,6 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5244D7DF23AC06EE001E338B /* sound.wav in Resources */,
 				A59B838223AAA9B10038E35C /* LaunchScreen.storyboard in Resources */,
 				A59B83C323ABC8A10038E35C /* noahsVideo.mp4 in Resources */,
 				A59B837F23AAA9B10038E35C /* Assets.xcassets in Resources */,
