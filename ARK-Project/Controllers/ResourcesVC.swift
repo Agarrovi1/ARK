@@ -10,21 +10,85 @@ import UIKit
 
 class ResourcesVC: UIViewController {
 
+    // MARK: - UI Objects
+    lazy var headerImage: UIImageView = {
+        let img = UIImageView()
+        img.image = UIImage(named: "info-squared")
+        return img
+    }()
+    
+    lazy var resourceCV: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.backgroundColor = .black
+        cv.register(ResourcesCVCell.self, forCellWithReuseIdentifier: "ResourcesCVCell")
+        return cv
+    }()
+    
+    // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        addSubviews()
+        constrainHeaderImage()
+        constrainResourceCV()
+        delegation()
+    }
+    
+    // MARK: - Private Methods
+    private func setupVCViews() {
+        view.backgroundColor = .black
+    }
+    
+    private func addSubviews() {
+        view.addSubview(headerImage)
+        view.addSubview(resourceCV)
+    }
+    
+    private func delegation() {
+        resourceCV.delegate = self
+        resourceCV.dataSource = self
+    }
+    
+    // MARK: - Constraint Methods
+    private func constrainHeaderImage() {
+        headerImage.translatesAutoresizingMaskIntoConstraints = false
+        
+        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.33), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainResourceCV() {
+        resourceCV.translatesAutoresizingMaskIntoConstraints = false
+        
+        [resourceCV.topAnchor.constraint(equalTo: headerImage.bottomAnchor), resourceCV.leadingAnchor.constraint(equalTo: view.leadingAnchor), resourceCV.trailingAnchor.constraint(equalTo: view.trailingAnchor), resourceCV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)].forEach({$0.isActive = true})
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+
+extension ResourcesVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
     }
-    */
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = resourceCV.dequeueReusableCell(withReuseIdentifier: "ResourcesCVCell", for: indexPath) as? ResourcesCVCell {
+            cell.backgroundColor = .systemPink
+            return cell
+        }
+        return UICollectionViewCell()
+    }
+    
+    
+}
 
+extension ResourcesVC: UICollectionViewDelegate {
+    
+}
+
+extension ResourcesVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 125, height: 125)
+    }
 }
