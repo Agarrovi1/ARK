@@ -68,8 +68,8 @@ class MapVC: UIViewController {
         setSearchBarConstraints()
         setMapConstraints()
         setGaugeConstraints()
-        setResourceButtonConstraints()
         setInfoButtonConstraints()
+        setResourceButtonConstraints()
         setActionButtonConstraints()
     }
     private func setSearchBarConstraints() {
@@ -95,22 +95,22 @@ class MapVC: UIViewController {
         NSLayoutConstraint.activate([
             dangerGauge.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -50),
             dangerGauge.trailingAnchor.constraint(equalTo: mapView.trailingAnchor, constant: -20),
-            dangerGauge.widthAnchor.constraint(equalToConstant: dangerGauge.frame.width),
+            dangerGauge.widthAnchor.constraint(equalToConstant: dangerGauge.frame.width - 20),
             dangerGauge.heightAnchor.constraint(equalToConstant: dangerGauge.frame.height)])
     }
     private func setResourceButtonConstraints() {
         mapView.addSubview(resourceButton)
         resourceButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            resourceButton.leadingAnchor.constraint(equalTo: mapView.leadingAnchor, constant: 100),
-            resourceButton.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -20)])
+            resourceButton.trailingAnchor.constraint(equalTo: infoButton.leadingAnchor,constant: -20),
+            resourceButton.topAnchor.constraint(equalTo: infoButton.topAnchor,constant: 10)])
     }
     private func setInfoButtonConstraints() {
         mapView.addSubview(infoButton)
         infoButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            infoButton.topAnchor.constraint(equalTo: resourceButton.topAnchor,constant: -10),
-            infoButton.leadingAnchor.constraint(equalTo: resourceButton.trailingAnchor, constant: 20),
+            infoButton.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -20),
+            infoButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             infoButton.widthAnchor.constraint(equalToConstant: 70),
             infoButton.heightAnchor.constraint(equalToConstant: 70)])
     }
@@ -119,7 +119,7 @@ class MapVC: UIViewController {
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             actionButton.leadingAnchor.constraint(equalTo: infoButton.trailingAnchor, constant: 20),
-            actionButton.topAnchor.constraint(equalTo: resourceButton.topAnchor)])
+            actionButton.topAnchor.constraint(equalTo: infoButton.topAnchor,constant: 10)])
     }
     //MARK: - Setup
     private func setDelegates() {
@@ -168,11 +168,37 @@ class MapVC: UIViewController {
     }
     @objc private func segueToFacts() {
         let factsVC = FactsVC()
+        var state = ""
+        switch place.searchName {
+        case "Roosevelt Island":
+            state = "NY"
+        case "Miami":
+            state = "FL"
+        case "Las Vegas":
+            state = "NV"
+        default:
+            state = ""
+        }
+        factsVC.states = state
+        
         present(factsVC, animated: true, completion: nil)
     }
     @objc private func segueToTakeAction() {
+        var state = ""
+        let takeActionVC = TakeActionVC()
         
-        let takeActionVC = ResourcesVC()
+        switch place.searchName {
+        case "Roosevelt Island":
+            state = "NY"
+        case "Miami":
+            state = "FL"
+        case "Las Vegas":
+            state = "NV"
+        default:
+            state = ""
+        }
+        
+        takeActionVC.searchParam = state
         present(takeActionVC, animated: true, completion: nil)
     }
 
@@ -227,5 +253,6 @@ extension MapVC: CLLocationManagerDelegate {
 extension MapVC: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchString = searchBar.text
+        searchBar.resignFirstResponder()
     }
 }
