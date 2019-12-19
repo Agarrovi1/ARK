@@ -13,7 +13,7 @@ class ResourcesVC: UIViewController {
     // MARK: - UI Objects
     lazy var headerImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(systemName: "info.circle")
+        img.image = UIImage(systemName: "tornado")
         return img
     }()
     
@@ -33,6 +33,7 @@ class ResourcesVC: UIViewController {
         constrainHeaderImage()
         constrainResourceCV()
         delegation()
+        view.backgroundColor = .black
     }
     
     // MARK: - Private Methods
