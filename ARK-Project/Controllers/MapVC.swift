@@ -104,6 +104,11 @@ class MapVC: UIViewController {
         mapView.delegate = self
         locationManager.delegate = self
     }
+    private func addTargetToButtons() {
+        resourceButton.addTarget(self, action: #selector(segueToResources), for: .touchUpInside)
+        infoButton.addTarget(self, action: #selector(segueToFacts), for: .touchUpInside)
+        actionButton.addTarget(self, action: #selector(segueToTakeAction), for: .touchUpInside)
+    }
     
     //MARK: - Methods
     private func zoomIn(locationCoordinate: CLLocation) {
@@ -123,6 +128,18 @@ class MapVC: UIViewController {
             locationManager.requestWhenInUseAuthorization()
         }
     }
+    @objc private func segueToResources() {
+        let resourceVC = ResourcesVC()
+        present(resourceVC, animated: true, completion: nil)
+    }
+    @objc private func segueToFacts() {
+        let resourceVC = FactsVC()
+        present(resourceVC, animated: true, completion: nil)
+    }
+    @objc private func segueToTakeAction() {
+        let resourceVC = ResourcesVC()
+        present(resourceVC, animated: true, completion: nil)
+    }
 
     
     //MARK: - LifeCycle
@@ -130,6 +147,7 @@ class MapVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setConstraints()
+        addTargetToButtons()
         setDelegates()
         locationAuthorization()
         mapView.userTrackingMode = .follow
