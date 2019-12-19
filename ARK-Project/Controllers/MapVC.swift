@@ -167,12 +167,13 @@ class MapVC: UIViewController {
         present(resourceVC, animated: true, completion: nil)
     }
     @objc private func segueToFacts() {
-        let resourceVC = FactsVC()
-        present(resourceVC, animated: true, completion: nil)
+        let factsVC = FactsVC()
+        present(factsVC, animated: true, completion: nil)
     }
     @objc private func segueToTakeAction() {
-        let resourceVC = ResourcesVC()
-        present(resourceVC, animated: true, completion: nil)
+        
+        let takeActionVC = ResourcesVC()
+        present(takeActionVC, animated: true, completion: nil)
     }
 
     
