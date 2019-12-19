@@ -12,7 +12,7 @@ struct LegislatorsAPIClient {
     private init() {}
     static let shared = LegislatorsAPIClient()
     
-    func getMembersInfo(state: String , completionHandler: @escaping (Result<[Member], AppError>) -> ()) {
+    func getMembersInfo(completionHandler: @escaping (Result<[Member], AppError>) -> ()) {
         let urlStr = "https://api.propublica.org/congress/v1/116/senate/members.json"
 
         guard let url = URL(string: urlStr) else {
