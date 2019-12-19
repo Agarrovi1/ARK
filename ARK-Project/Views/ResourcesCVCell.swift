@@ -14,8 +14,9 @@ class ResourcesCVCell: UICollectionViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.font = UIFont(name: "Optima-ExtraBlack", size: 18)
+        label.font = UIFont(name: "Optima-ExtraBlack", size: 12)
         label.textColor = #colorLiteral(red: 0.2936059237, green: 0.2941584289, blue: 0.9735861421, alpha: 1)
+        label.numberOfLines = 0
         label.backgroundColor = .yellow
         return label
     }()
@@ -23,6 +24,7 @@ class ResourcesCVCell: UICollectionViewCell {
     lazy var cellImageView: UIImageView = {
         let img = UIImageView()
         img.backgroundColor = .green
+        img.contentMode = .scaleAspectFit
         return img
     }()
     
