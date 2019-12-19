@@ -29,7 +29,8 @@ class NetworkManager {
         request.httpMethod = httpMethod.rawValue
         request.httpBody = body
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("D8lB12W37KRgzofG4NU9BGungYmRP2n4zEIQ6n07", forHTTPHeaderField: "Authorization")
+        request.setValue("D8lB12W37KRgzofG4NU9BGungYmRP2n4zEIQ6n07", forHTTPHeaderField: "X-API-Key")
+//        request.setValue("X-API-Key: D8lB12W37KRgzofG4NU9BGungYmRP2n4zEIQ6n07", forHTTPHeaderField: "Authorization")
         
 
         

@@ -10,6 +10,33 @@ import UIKit
 
 class TakeActionVC: UIViewController {
 
+    var searchParam = ""
+    
+    var congressData = [Member]() {
+        
+        didSet {
+            guard congressData.count > 0 else { return }
+            state.text = "State: \(congressData[0].state ?? "State not found")"
+            nameLabel.text = "Congress Person:\n \(congressData[0].firstName ?? "Firstname not found") \(congressData[0].lastName ?? "Lastname not found")"
+            
+        }
+    }
+    
+    func loadData(filterSearch: String) {
+        LegislatorsAPIClient.shared.getMembersInfo { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let members):
+                    self.congressData = members.filter({ (member) -> Bool in
+                        return member.state! == filterSearch
+                    })
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -23,23 +50,30 @@ class TakeActionVC: UIViewController {
         view.addSubview(state)
         view.addSubview(callButton)
         
+        view.backgroundColor = .black
+        
+        loadData(filterSearch: searchParam)
     }
     
     lazy var state: UILabel = {
         var congressState = UILabel()
         congressState.frame = CGRect (x: 70, y: 200, width: 300, height: 50)
-        congressState.text = "For State: New York"
+        congressState.text = ""
         congressState.textAlignment = .center
         congressState.textColor = .white
+        congressState.font = UIFont(name: "Optima-ExtraBlack", size: 40)
         return congressState
     }()
     
     lazy var nameLabel: UILabel = {
         var name = UILabel()
         name.frame = CGRect (x: 65, y: 300, width: 300, height: 50)
-        name.text = "Congress Contact: Angela"
+        name.text = ""
         name.textAlignment = .center
         name.textColor = .white
+        name.font = UIFont(name: "Optima-ExtraBlack", size: 20)
+        name.numberOfLines = 0
+        name.lineBreakMode = .byWordWrapping
         return name
     }()
     
