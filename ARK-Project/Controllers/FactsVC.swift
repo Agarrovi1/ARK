@@ -14,7 +14,7 @@ class FactsVC: UIViewController {
     // MARK: - UI Objects
     lazy var headerImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(systemName: "tornado")
+        img.image = UIImage(systemName: "info.circle")
         return img
     }()
     
@@ -31,6 +31,7 @@ class FactsVC: UIViewController {
         addSubviews()
         addConstraints()
         delegation()
+        view.backgroundColor = .black
     }
     
     // MARK: - Private Methods
