@@ -54,13 +54,18 @@ class TakeActionVC: UIViewController {
     }()
     
     lazy var callButton: UIButton = {
-        var b = UIButton()
-        b.backgroundColor = .black
-        b.setTitle("CALL NOW!!", for: .normal)
-        b.titleLabel?.font = UIFont(name: "Optima-ExtraBlack", size: 18)
-        b.addTarget(self, action:#selector(callButtonClicked), for: .touchUpInside)
-        b.isEnabled = true
-        return b
+
+        var button = UIButton()
+        button.backgroundColor = .black
+        button.setTitle("CALL NOW!", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Optima-ExtraBlack", size: 18)
+        button.addTarget(self, action:#selector(callButtonClicked), for: .touchUpInside)
+        button.isEnabled = true
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.cornerRadius = 5
+        return button
+
         
     }()
     
@@ -152,7 +157,9 @@ class TakeActionVC: UIViewController {
     private func constrainHeaderImage() {
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         
+
         [headerImage.topAnchor.constraint(equalTo: containerView.topAnchor), headerImage.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)].forEach({$0.isActive = true})
+
     }
     
     private func constrainNameLabel() {
