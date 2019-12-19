@@ -110,6 +110,7 @@
 		A59B837123AAA9AC0038E35C /* ARK-Project */ = {
 			isa = PBXGroup;
 			children = (
+				A59B83BF23ABC1860038E35C /* Utilities */,
 				A59B83AD23AAB1290038E35C /* Confidential */,
 				A59B839C23AAAC2A0038E35C /* Controllers */,
 				A59B839B23AAABDD0038E35C /* Views */,
@@ -199,6 +200,13 @@
 			children = (
 			);
 			path = Confidential;
+			sourceTree = "<group>";
+		};
+		A59B83BF23ABC1860038E35C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
