@@ -11,6 +11,22 @@ import UIKit
 class TakeActionVC: UIViewController {
 
     // MARK: - UI Objects
+    lazy var touchView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.layer.cornerRadius = 10
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     lazy var headerImage: UIImageView = {
         let img = UIImageView()
         img.image = UIImage(systemName: "phone")
@@ -41,7 +57,7 @@ class TakeActionVC: UIViewController {
         var b = UIButton()
         b.backgroundColor = .black
         b.setTitle("CALL NOW!!", for: .normal)
-        b.titleLabel?.font = UIFont(name: "Optima-ExtraBlack", size: 22)
+        b.titleLabel?.font = UIFont(name: "Optima-ExtraBlack", size: 18)
         b.addTarget(self, action:#selector(callButtonClicked), for: .touchUpInside)
         b.isEnabled = true
         return b
@@ -63,21 +79,26 @@ class TakeActionVC: UIViewController {
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(headerImage)
-        view.addSubview(nameLabel)
-        view.addSubview(state)
-        view.addSubview(callButton)
+        constrainTouchView()
+        constrainContainerView()
+        containerView.addSubview(headerImage)
+        containerView.addSubview(nameLabel)
+        containerView.addSubview(state)
+        containerView.addSubview(callButton)
+        
         constrainHeaderImage()
         constrainNameLabel()
         constrainStateLabel()
         constrainCallButton()
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         loadData(filterSearch: searchParam)
     }
     
     // MARK: - Actions
     @objc func callButtonClicked(sender: UIButton!) {
-        dialNumber(number: "8622510086")
+        if let number = congressData[0].phone {
+        dialNumber(number: number)
+        }
     }
     
     func dialNumber(number : String) {
@@ -111,28 +132,46 @@ class TakeActionVC: UIViewController {
     }
     
     // MARK: - Constraint Methods
+    private func constrainTouchView() {
+        view.addSubview(touchView)
+        NSLayoutConstraint.activate([
+            touchView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            touchView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            touchView.heightAnchor.constraint(equalToConstant: 5),
+            touchView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.2)
+        ])
+    }
+    private func constrainContainerView() {
+        view.addSubview(containerView)
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: touchView.bottomAnchor, constant: 10),
+            containerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.8),
+            containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
     private func constrainHeaderImage() {
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         
-        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
+        [headerImage.topAnchor.constraint(equalTo: containerView.topAnchor), headerImage.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)].forEach({$0.isActive = true})
     }
     
     private func constrainNameLabel() {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        [nameLabel.topAnchor.constraint(equalTo: headerImage.bottomAnchor,constant: 30), nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor), nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor), nameLabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.17)].forEach({$0.isActive = true})
+        [nameLabel.topAnchor.constraint(equalTo: headerImage.bottomAnchor,constant: 30), nameLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor), nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor), nameLabel.heightAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.heightAnchor, multiplier: 0.17)].forEach({$0.isActive = true})
     }
     
     private func constrainStateLabel() {
         state.translatesAutoresizingMaskIntoConstraints = false
         
-        [state.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 30), state.leadingAnchor.constraint(equalTo: view.leadingAnchor), state.trailingAnchor.constraint(equalTo: view.trailingAnchor), state.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.17)].forEach({$0.isActive = true})
+        [state.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 30), state.leadingAnchor.constraint(equalTo: containerView.leadingAnchor), state.trailingAnchor.constraint(equalTo: containerView.trailingAnchor), state.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.17)].forEach({$0.isActive = true})
     }
     
     private func constrainCallButton() {
         callButton.translatesAutoresizingMaskIntoConstraints = false
         
-        [callButton.centerXAnchor.constraint(equalTo: view.centerXAnchor), callButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.45), callButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.1), callButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -35)].forEach({$0.isActive = true})
+        [callButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor), callButton.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 0.45), callButton.heightAnchor.constraint(equalTo: containerView.heightAnchor, multiplier: 0.1), callButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -35)].forEach({$0.isActive = true})
     }
+    
     
 }
