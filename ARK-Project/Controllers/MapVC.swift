@@ -16,6 +16,28 @@ class MapVC: UIViewController {
     let searchRadius: CLLocationDistance = 2000
     var initialLocation = CLLocation(latitude: 40.742054, longitude: -73.769417)
     private var locationManager = CLLocationManager()
+    var place = Place(latitude: 0, longitude: 0, floodedInYear: 0, directionOfSafeZone: "", feetUnderWater: 0, populationEffected: 0, searchName: "", danger: 0)
+    
+    private var searchString: String? = nil {
+        didSet {
+            guard let searchString = searchString?.lowercased() else {return}
+            guard !searchString.isEmpty else {return}
+            
+            if searchString == "roosevelt island" {
+                place = place1
+                initialLocation = CLLocation(latitude: 40.7605031, longitude: -73.9509934)
+            } else if searchString == "miami" {
+                place = place2
+                initialLocation = CLLocation(latitude: 25.7825452, longitude: -80.2996701)
+            } else if searchString == "las vegas" {
+                place = place3
+                initialLocation = CLLocation(latitude: 36.1251954, longitude: -115.3154268)
+            }
+            makeAnnotation()
+            zoomIn(locationCoordinate: initialLocation)
+            dangerGauge.changePositionOfArrow(dangerLevel: place.danger)
+        }
+    }
     
     
     //MARK: - Objects
@@ -103,6 +125,7 @@ class MapVC: UIViewController {
     private func setDelegates() {
         mapView.delegate = self
         locationManager.delegate = self
+        placeSearchBar.delegate = self
     }
     private func addTargetToButtons() {
         resourceButton.addTarget(self, action: #selector(segueToResources), for: .touchUpInside)
@@ -112,8 +135,18 @@ class MapVC: UIViewController {
     
     //MARK: - Methods
     private func zoomIn(locationCoordinate: CLLocation) {
-        let coordinateRegion = MKCoordinateRegion.init(center: locationCoordinate.coordinate, latitudinalMeters: self.searchRadius * 2.0, longitudinalMeters: self.searchRadius * 2.0)
-        self.mapView.setRegion(coordinateRegion, animated: true)
+        let coordinateRegion = MKCoordinateRegion.init(center: locationCoordinate.coordinate, latitudinalMeters: searchRadius * 2.0, longitudinalMeters: searchRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    private func makeAnnotation() {
+        let annotations = mapView.annotations
+        mapView.removeAnnotations(annotations)
+        
+        
+        let newAnnotation = MKPointAnnotation()
+        newAnnotation.title = place.searchName
+        newAnnotation.coordinate = CLLocationCoordinate2D(latitude: initialLocation.coordinate.latitude, longitude: initialLocation.coordinate.longitude)
+        mapView.addAnnotation(newAnnotation)
     }
     private func locationAuthorization() {
         let status = CLLocationManager.authorizationStatus()
@@ -128,6 +161,7 @@ class MapVC: UIViewController {
             locationManager.requestWhenInUseAuthorization()
         }
     }
+    //MARK: Objc Func
     @objc private func segueToResources() {
         let resourceVC = ResourcesVC()
         present(resourceVC, animated: true, completion: nil)
@@ -163,7 +197,7 @@ extension MapVC: MKMapViewDelegate {
     
 }
 
-//MARK: - CoreLocation
+//MARK:  CoreLocation
 extension MapVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("New location: \(locations)")
@@ -176,7 +210,7 @@ extension MapVC: CLLocationManagerDelegate {
             locationManager.requestLocation()
             locationManager.startUpdatingLocation()
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            zoomIn(locationCoordinate: initialLocation)
+            //zoomIn(locationCoordinate: initialLocation)
             //Call a function to get the current location
             
         default:
@@ -185,5 +219,12 @@ extension MapVC: CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("\(error)")
+    }
+}
+
+//MARK: SearchBar
+extension MapVC: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchString = searchBar.text
     }
 }
