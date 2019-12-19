@@ -14,7 +14,7 @@ class FactsVC: UIViewController {
     // MARK: - UI Objects
     lazy var headerImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(systemName: "tornado")
+        img.image = UIImage(systemName: "info.circle")
         return img
     }()
     
@@ -31,6 +31,7 @@ class FactsVC: UIViewController {
         addSubviews()
         addConstraints()
         delegation()
+        view.backgroundColor = .black
     }
     
     // MARK: - Private Methods
@@ -53,7 +54,7 @@ class FactsVC: UIViewController {
     private func constrainHeaderImage() {
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         
-        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
+        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
     }
     
     private func constrainTableView() {

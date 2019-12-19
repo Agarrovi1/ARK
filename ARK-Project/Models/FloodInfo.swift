@@ -26,4 +26,4 @@ var place3 = Place(latitude: 36.1251954, longitude: -115.3154268, floodedInYear:
 
 var NY = ["Expected to flood in 2200", "In the yr. 2200 it will be 7' under water", "Number of population effected: 11,945", "Danger level: 3", "Go West to be in a safe zone"]
 var FL = ["Expected to flood in 2200", "In the yr. 2200 it will be 6' under water", "Number of population effected: 463,347", "Danger level: 2", "Go West to be in a safe zone"]
-var NV = ["Expected to flood in 3500", "In the yr. 3500 it will be 6' under water", "Number of population effected: 641,676", "Danger level: 7", "Go SouthWest to be in a safe zone"]
+var NV = ["Expected to flood in 3500", "In the yr. 2200 it will be 6' under water", "Number of population effected: 641,676", "Danger level: 7", "Go SouthWest to be in a safe zone"]

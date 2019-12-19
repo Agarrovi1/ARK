@@ -22,7 +22,7 @@ class TakeActionVC: UIViewController {
         congressState.text = ""
         congressState.textAlignment = .center
         congressState.textColor = .white
-        congressState.font = UIFont(name: "Optima-ExtraBlack", size: 40)
+        congressState.font = UIFont(name: "Optima-ExtraBlack", size: 25)
         return congressState
     }()
     
@@ -31,20 +31,23 @@ class TakeActionVC: UIViewController {
         name.text = ""
         name.textAlignment = .center
         name.textColor = .white
-        name.font = UIFont(name: "Optima-ExtraBlack", size: 20)
+        name.font = UIFont(name: "Optima-ExtraBlack", size: 22)
         name.numberOfLines = 0
         name.lineBreakMode = .byWordWrapping
         return name
     }()
     
     lazy var callButton: UIButton = {
-        var b = UIButton()
-        b.backgroundColor = .black
-        b.setTitle("CALL NOW!!", for: .normal)
-        b.titleLabel?.font = UIFont(name: "Optima-ExtraBlack", size: 22)
-        b.addTarget(self, action:#selector(callButtonClicked), for: .touchUpInside)
-        b.isEnabled = true
-        return b
+        var button = UIButton()
+        button.backgroundColor = .black
+        button.setTitle("CALL NOW!", for: .normal)
+        button.titleLabel?.font = UIFont(name: "Optima-ExtraBlack", size: 22)
+        button.addTarget(self, action:#selector(callButtonClicked), for: .touchUpInside)
+        button.isEnabled = true
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.white.cgColor
+        button.layer.cornerRadius = 5
+        return button
         
     }()
     
@@ -68,6 +71,7 @@ class TakeActionVC: UIViewController {
         view.addSubview(state)
         view.addSubview(callButton)
         constrainHeaderImage()
+        constrainNameLabel()
         constrainStateLabel()
         constrainCallButton()
         view.backgroundColor = .black
@@ -113,13 +117,19 @@ class TakeActionVC: UIViewController {
     private func constrainHeaderImage() {
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         
-        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
+        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
+    }
+    
+    private func constrainNameLabel() {
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        [nameLabel.topAnchor.constraint(equalTo: headerImage.bottomAnchor,constant: 30), nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor), nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor), nameLabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.17)].forEach({$0.isActive = true})
     }
     
     private func constrainStateLabel() {
         state.translatesAutoresizingMaskIntoConstraints = false
         
-        [state.topAnchor.constraint(equalTo: headerImage.bottomAnchor, constant: 30), state.leadingAnchor.constraint(equalTo: view.leadingAnchor), state.trailingAnchor.constraint(equalTo: view.trailingAnchor), state.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.17)].forEach({$0.isActive = true})
+        [state.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 30), state.leadingAnchor.constraint(equalTo: view.leadingAnchor), state.trailingAnchor.constraint(equalTo: view.trailingAnchor), state.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.17)].forEach({$0.isActive = true})
     }
     
     private func constrainCallButton() {

@@ -13,7 +13,7 @@ class ResourcesVC: UIViewController {
     // MARK: - UI Objects
     lazy var headerImage: UIImageView = {
         let img = UIImageView()
-        img.image = UIImage(systemName: "info.circle")
+        img.image = UIImage(systemName: "tornado")
         return img
     }()
     
@@ -33,6 +33,7 @@ class ResourcesVC: UIViewController {
         constrainHeaderImage()
         constrainResourceCV()
         delegation()
+        view.backgroundColor = .black
     }
     
     // MARK: - Private Methods
@@ -54,7 +55,7 @@ class ResourcesVC: UIViewController {
     private func constrainHeaderImage() {
         headerImage.translatesAutoresizingMaskIntoConstraints = false
         
-        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
+        [headerImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10), headerImage.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.20), headerImage.heightAnchor.constraint(equalTo: headerImage.widthAnchor), headerImage.centerXAnchor.constraint(equalTo: view.centerXAnchor)].forEach({$0.isActive = true})
     }
     
     private func constrainResourceCV() {
@@ -69,12 +70,14 @@ class ResourcesVC: UIViewController {
 
 extension ResourcesVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return allResources.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = resourceCV.dequeueReusableCell(withReuseIdentifier: "ResourcesCVCell", for: indexPath) as? ResourcesCVCell {
-            cell.backgroundColor = .systemPink
+            let resource = allResources[indexPath.row]
+            cell.nameLabel.text = resource.orgName
+            cell.cellImageView.image = resource.image
             return cell
         }
         return UICollectionViewCell()
@@ -84,7 +87,10 @@ extension ResourcesVC: UICollectionViewDataSource {
 }
 
 extension ResourcesVC: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let resource = allResources[indexPath.row]
+        UIApplication.shared.open(URL(string: resource.link)!, options: [:], completionHandler: nil)
+    }
 }
 
 extension ResourcesVC: UICollectionViewDelegateFlowLayout {
