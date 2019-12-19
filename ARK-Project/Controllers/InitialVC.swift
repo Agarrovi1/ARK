@@ -21,6 +21,28 @@ class InitialVC: UIViewController {
         label.text = "ARK"
         return label
     }()
+    
+    lazy var tapButton: UIButton = {
+        
+        var b = UIButton()
+        
+        b.setTitle("", for: .normal)
+        b.addTarget(self, action:#selector(tapButtonClicked), for: .touchUpInside)
+        b.isEnabled = true
+        return b
+        
+    }()
+    
+    @objc func tapButtonClicked(sender: UIButton!) {
+       guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let sceneDelegate = windowScene.delegate as? SceneDelegate
+           else {
+               return
+       }
+        UIView.transition(with: self.view, duration: 0.5, options: .transitionFlipFromBottom, animations: {
+            sceneDelegate.window?.rootViewController = MapVC()
+        }, completion: nil)
+    }
     // MARK: - Properties
     var videoPlayer: AVPlayer?
     var videoPlayerLayer:AVPlayerLayer?
@@ -37,11 +59,13 @@ class InitialVC: UIViewController {
       loopPlayer()
       setUpElements()
     constrainLabel()
+        constrainButton()
     }
     
     //MARK: -- Private Functions
     private func setUpElements() {
         view.addSubview(appNamelabel)
+        view.addSubview(tapButton)
     }
     
     private func setUpVideo() {
@@ -88,6 +112,14 @@ class InitialVC: UIViewController {
         
         [appNamelabel.centerYAnchor.constraint(equalTo: view.centerYAnchor), appNamelabel.leadingAnchor.constraint(equalTo: view.leadingAnchor), appNamelabel.trailingAnchor.constraint(equalTo: view.trailingAnchor), appNamelabel.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.15)].forEach({$0.isActive = true})
     }
+    
+    private func constrainButton() {
+        tapButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        [tapButton.topAnchor.constraint(equalTo: view.topAnchor), tapButton.leadingAnchor.constraint(equalTo: view.leadingAnchor), tapButton.trailingAnchor.constraint(equalTo: view.trailingAnchor), tapButton.bottomAnchor.constraint(equalTo: view.bottomAnchor)].forEach({$0.isActive = true})
+    }
+    
+    
     
 
 }
