@@ -13,6 +13,7 @@ class DangerGaugeView: UIView {
     var gradientView = GradientView()
     var arrow = UIImageView(image: UIImage(systemName: "arrow.right"))
     var arrowIsSet = false
+    var warningImage = UIImageView(image: #imageLiteral(resourceName: "icons8-error"))
     
     private func setGradientView() {
         addSubview(gradientView)
@@ -22,6 +23,13 @@ class DangerGaugeView: UIView {
             gradientView.leadingAnchor.constraint(equalTo: leadingAnchor),
             gradientView.trailingAnchor.constraint(equalTo: trailingAnchor),
             gradientView.bottomAnchor.constraint(equalTo: bottomAnchor)])
+    }
+    private func setWarningConstraints() {
+        addSubview(warningImage)
+        warningImage.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            warningImage.bottomAnchor.constraint(equalTo: gradientView.topAnchor),
+            warningImage.centerXAnchor.constraint(equalTo: centerXAnchor)])
     }
     private func setArrow() {
         arrow.tintColor = .black
@@ -54,7 +62,7 @@ class DangerGaugeView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setGradientView()
-        
+        setWarningConstraints()
     }
     
     required init?(coder: NSCoder) {
