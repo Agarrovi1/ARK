@@ -10,6 +10,7 @@ import UIKit
 
 class FactsVC: UIViewController {
     
+    var states = "NY"
     // MARK: - UI Objects
     lazy var headerImage: UIImageView = {
         let img = UIImageView()
@@ -19,7 +20,7 @@ class FactsVC: UIViewController {
     
     lazy var factsTV: UITableView = {
         let tv = UITableView()
-        tv.backgroundColor = .white
+        tv.backgroundColor = .black
         tv.register(FactsTVCell.self, forCellReuseIdentifier: "FactsTVCell")
         return tv
     }()
@@ -66,12 +67,22 @@ class FactsVC: UIViewController {
 
 extension FactsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return NY.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = factsTV.dequeueReusableCell(withIdentifier: "FactsTVCell", for: indexPath) as? FactsTVCell {
-            cell.backgroundColor = .blue
+            switch states {
+            case "NY":
+                cell.factLabel.text = NY[indexPath.row]
+            case "FL":
+                cell.factLabel.text = FL[indexPath.row]
+            case "NV":
+                cell.factLabel.text = NV[indexPath.row]
+            default:
+                break
+                
+            }
             return cell
         }
         return UITableViewCell()
